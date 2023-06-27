@@ -1,0 +1,14 @@
+{
+  "name": "downloadigdbdatabase",
+  "version": "1.0.0",
+  "description": "Script to download assets and data from igdb, and uploading them to supabase",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "SiddhantMadhur",
+  "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.26.0"
+  }
+}
