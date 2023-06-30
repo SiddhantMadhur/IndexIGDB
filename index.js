@@ -31,7 +31,7 @@ async function getGames(offset) {
       "Client-ID": twitch_client_id,
       Authorization: `Bearer ${access_token}`,
     },
-    body: `fields id, name, slug, cover.url, cover.width, cover.height; where version_parent=null; sort id asc;  limit ${limit}; offset ${offset};`,
+    body: `fields id, name, slug, first_release_date, cover.url, cover.width, cover.height; where version_parent=null; sort id asc;  limit ${limit}; offset ${offset};`,
   });
   const res = await gameRequest.json();
   return res;
@@ -49,6 +49,7 @@ async function uploadGames(gameData) {
           cover_width: game.cover?.width,
           cover_height: game.cover?.height,
           cover_url: "https:" + game.cover?.url.replace("thumb", "cover_big"),
+          release_date: game.first_release_date
         })
         .eq("id", game.id);
       if (error !== null) {
