@@ -1,6 +1,6 @@
 // global vars
 
-let waitingTime = 10000;
+let waitingTime = 60000;
 let interval = 0;
 let limit = 500;
 
@@ -59,8 +59,8 @@ async function uploadGames(gameData) {
       }
     });
   } else {
-    waitingTime = 6 * 60 * 60 * 1000;
-    limit = 5;
+    waitingTime = 7 * 24 * 60 * 60 * 1000;
+    pass = true
   }
 }
 
@@ -69,7 +69,9 @@ async function getGameAndUpload(offset) {
   await uploadGames(allGames);
 }
 
+let pass = false
 setInterval(() => {
   getGameAndUpload(interval);
   interval = interval + 500;
+  waitingTime = 60000
 }, waitingTime);
