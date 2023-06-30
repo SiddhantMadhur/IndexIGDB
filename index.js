@@ -4,6 +4,10 @@ let waitingTime = 10000;
 let interval = 0;
 let limit = 500;
 
+if (typeof process.argv[2] !== 'undefined'){
+  interval = Number(process.argv[2])
+}
+
 // packages
 const { twitch_client_id, twitch_client_secret } = require("./variables.js");
 const { supabase } = require("./supabase.js");
