@@ -60,6 +60,7 @@ async function uploadGames(gameData) {
     });
   } else {
     waitingTime = 7 * 24 * 60 * 60 * 1000;
+    interval = 0
     pass = true
   }
 }
