@@ -27,7 +27,7 @@ async function getGames(offset) {
       "Client-ID": twitch_client_id,
       Authorization: `Bearer ${access_token}`,
     },
-    body: `fields id, name, slug, cover.url, cover.width, cover.height; where version_parent=null; sort id asci;  limit ${limit}; offset ${offset};`,
+    body: `fields id, name, slug, cover.url, cover.width, cover.height; where version_parent=null; sort id asc;  limit ${limit}; offset ${offset};`,
   });
   const res = await gameRequest.json();
   return res;
@@ -49,6 +49,7 @@ async function uploadGames(gameData) {
         .eq("id", game.id);
       if (error !== null) {
         console.log(error.message);
+        console.log(game)
       } else {
         console.log("Uploaded '" + game.name + "' (id:" + game.id + ")");
       }
