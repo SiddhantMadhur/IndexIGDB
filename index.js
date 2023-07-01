@@ -1,6 +1,6 @@
 // global vars
 
-let waitingTime = 60000;
+let waitingTime = 10000;
 let interval = 0;
 let limit = 500;
 
